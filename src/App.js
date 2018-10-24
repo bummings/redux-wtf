@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react";
 import { connect } from "react-redux";
 import { fetchAnimals } from "./actions";
 
@@ -9,10 +8,12 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchAnimals();
   }
-  return() {
+  render() {
     return (
       <div>
-        <h1>bruh</h1>
+        {this.props.animals.map(animal => {
+          return <p key={animal}>{animal}</p>;
+        })}
       </div>
     );
   }
